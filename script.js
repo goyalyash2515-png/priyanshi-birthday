@@ -1,9 +1,10 @@
-// PASSWORD
+// PASSWORD CHECK
 function checkPassword() {
   const pass = document.getElementById("password").value;
+
   if (pass === "wemeton15062025") {
-    document.getElementById("passwordBox").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("passwordBox").classList.add("hidden");
+    document.getElementById("mainContent").classList.remove("hidden");
   } else {
     alert("Wrong Password ❤️");
   }
@@ -11,7 +12,7 @@ function checkPassword() {
 
 // SURPRISE
 function showSurprise() {
-  document.getElementById("surprise").style.display = "block";
+  document.getElementById("surprise").classList.remove("hidden");
 }
 
 // COUNTDOWN
@@ -34,16 +35,14 @@ setInterval(() => {
   }
 }, 1000);
 
-// HEARTS ANIMATION
+// HEARTS
 setInterval(() => {
   const heart = document.createElement("div");
-  heart.classList.add("heart");
+  heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = (2 + Math.random() * 3) + "s";
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+  setTimeout(() => heart.remove(), 5000);
 }, 300);

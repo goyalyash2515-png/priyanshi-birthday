@@ -7,28 +7,34 @@
 </head>
 <body>
 
-<!-- PASSWORD -->
+<!-- PASSWORD BOX -->
 <div id="passwordBox">
   <h2>🔒 Enter Password</h2>
   <input type="password" id="password" placeholder="Enter password">
   <br><br>
-  <button onclick="checkPassword()">Unlock ❤️</button>
+  <!-- Changed button: id only, no onclick -->
+  <button id="unlockBtn">Unlock ❤️</button>
 </div>
 
 <!-- MAIN CONTENT -->
 <div id="mainContent">
 
+  <!-- Song -->
   <audio id="song" loop>
     <source src="music/birthday.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Animated Text -->
   <h1 class="animate">🎉 Happy Birthday 🎉</h1>
   <h2 class="animate">Priyanshi ❤️</h2>
 
+  <!-- Countdown -->
   <div id="countdown"></div>
 
+  <!-- Photo -->
   <img src="images/priyanshi.jpg" class="photo">
 
+  <!-- Message -->
   <p class="msg">
     Tum meri zindagi ka sabse khoobsurat hissa ho 💖<br>
     Happy Birthday meri jaan 🎂
@@ -36,6 +42,7 @@
 
 </div>
 
+<!-- Script -->
 <script src="script.js"></script>
 </body>
 </html>

@@ -7,35 +7,35 @@
 </head>
 <body>
 
-  <!-- PASSWORD SCREEN -->
-  <div id="passwordBox">
-    <h2>🔒 Enter Password</h2>
-    <input type="password" id="password" placeholder="Enter password">
-    <br><br>
-    <button onclick="checkPassword()">Unlock ❤️</button>
-  </div>
+<!-- PASSWORD -->
+<div id="passwordBox">
+  <h2>🔒 Enter Password</h2>
+  <input type="password" id="password" placeholder="Enter password">
+  <br><br>
+  <button onclick="checkPassword()">Unlock ❤️</button>
+</div>
 
-  <!-- MAIN CONTENT -->
-  <div id="mainContent">
-    <audio autoplay loop>
-      <source src="music/birthday.mp3" type="audio/mpeg">
-    </audio>
+<!-- MAIN CONTENT -->
+<div id="mainContent">
 
-    <h1>🎉 Happy Birthday 🎉</h1>
-    <h2>Priyanshi ❤️</h2>
-    <p>17 January</p>
+  <audio id="song" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+  </audio>
 
-    <img src="images/priyanshi.jpg" alt="Priyanshi" class="photo">
+  <h1 class="animate">🎉 Happy Birthday 🎉</h1>
+  <h2 class="animate">Priyanshi ❤️</h2>
 
-    <p class="msg">
-      💖 Tum meri zindagi ka sabse khoobsurat hissa ho.<br>
-      Har muskurahat meri tum se shuru hoti hai.<br>
-      Happy Birthday meri jaan 💖
-    </p>
-  </div>
+  <div id="countdown"></div>
 
-  <!-- JS FILE (MOST IMPORTANT) -->
-  <script src="script.js"></script>
+  <img src="images/priyanshi.jpg" class="photo">
 
+  <p class="msg">
+    Tum meri zindagi ka sabse khoobsurat hissa ho 💖<br>
+    Happy Birthday meri jaan 🎂
+  </p>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

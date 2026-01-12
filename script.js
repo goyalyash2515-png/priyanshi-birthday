@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function() {
+
+  const unlockBtn = document.getElementById("unlockBtn");
 
   function startCountdown() {
     const birthday = new Date("January 17, 2026 00:00:00").getTime();
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
   }
 
-  window.checkPassword = function () {
+  unlockBtn.addEventListener("click", function() {
     const pass = document.getElementById("password").value;
     if (pass === "wemeton15062025") {
       document.getElementById("passwordBox").style.display = "none";
@@ -28,6 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       alert("Wrong Password ❤️");
     }
-  }
+  });
 
-});
+};

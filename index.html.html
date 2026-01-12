@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Priyanshi 🎂</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PASSWORD BOX -->
+<div id="passwordBox">
+  <h2>🔒 Enter Password</h2>
+  <form id="unlockForm">
+    <input type="password" id="password" placeholder="Enter password">
+    <br><br>
+    <button type="submit">Unlock ❤️</button>
+  </form>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent">
+
+  <!-- Song -->
+  <audio id="song" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Animated Text -->
+  <h1 class="animate">🎉 Happy Birthday 🎉</h1>
+  <h2 class="animate">Priyanshi ❤️</h2>
+
+  <!-- Countdown -->
+  <div id="countdown"></div>
+
+  <!-- Photo -->
+  <img src="images/priyanshi.jpg" class="photo">
+
+  <!-- Message -->
+  <p class="msg">
+    Tum meri zindagi ka sabse khoobsurat hissa ho 💖<br>
+    Happy Birthday meri jaan 🎂
+  </p>
+
+</div>
+
+<!-- INLINE JS: Form-based Unlock + Countdown + Song -->
+<script>
+document.getElementById("unlockForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const pass = document.getElementById("password").value;
+  if(pass === "wemeton15062025"){
+    document.getElementById("passwordBox").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    const song = document.getElementById("song");
+    song.play().catch(()=>console.log("Tap to play manually"));
+
+    // Countdown
+    const birthday = new Date("January 17, 2026 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    setInterval(()=>{
+      const now = new Date().getTime();
+      const diff = birthday - now;
+      if(diff < 0){
+        countdownEl.innerHTML = "🎂 Happy Birthday Priyanshi 🎉";
+        return;
+      }
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff / (1000*60*60)) % 24);
+      const m = Math.floor((diff / (1000*60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      countdownEl.innerHTML = ⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds;
+    },1000);
+  } else {
+    alert("Wrong Password ❤️");
+  }
+});
+</script>
+
+</body>
+</html>

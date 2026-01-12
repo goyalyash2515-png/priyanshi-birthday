@@ -12,7 +12,7 @@
   <h2>🔒 Enter Password</h2>
   <input type="password" id="password" placeholder="Enter password">
   <br><br>
-  <!-- Changed button: id only, no onclick -->
+  <!-- Inline JS button -->
   <button id="unlockBtn">Unlock ❤️</button>
 </div>
 
@@ -42,7 +42,37 @@
 
 </div>
 
-<!-- Script -->
-<script src="script.js"></script>
+<!-- Inline JS (Final Fix) -->
+<script>
+document.getElementById("unlockBtn").addEventListener("click", function() {
+  const pass = document.getElementById("password").value;
+  if (pass === "wemeton15062025") {
+    document.getElementById("passwordBox").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("song").play();
+
+    // Countdown
+    const birthday = new Date("January 17, 2026 00:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = birthday - now;
+      if (diff < 0) {
+        document.getElementById("countdown").innerHTML = "🎂 Happy Birthday Priyanshi 🎉";
+        return;
+      }
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff / (1000*60*60)) % 24);
+      const m = Math.floor((diff / (1000*60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      document.getElementById("countdown").innerHTML =
+        ⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds;
+    }, 1000);
+
+  } else {
+    alert("Wrong Password ❤️");
+  }
+});
+</script>
+
 </body>
 </html>

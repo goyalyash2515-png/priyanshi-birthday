@@ -7,33 +7,28 @@
 </head>
 <body>
 
-<!-- PASSWORD BOX -->
 <div id="passwordBox">
   <h2>🔒 Enter Password</h2>
-  <input type="password" id="password" placeholder="Enter password">
-  <br><br>
-  <button id="unlockBtn">Unlock ❤️</button>
+  <form id="unlockForm">
+    <input type="password" id="password" placeholder="Enter password">
+    <br><br>
+    <button type="submit">Unlock ❤️</button>
+  </form>
 </div>
 
-<!-- MAIN CONTENT -->
 <div id="mainContent">
 
-  <!-- Song -->
   <audio id="song" loop>
     <source src="music/birthday.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Animated Text -->
   <h1 class="animate">🎉 Happy Birthday 🎉</h1>
   <h2 class="animate">Priyanshi ❤️</h2>
 
-  <!-- Countdown -->
   <div id="countdown"></div>
 
-  <!-- Photo -->
   <img src="images/priyanshi.jpg" class="photo">
 
-  <!-- Message -->
   <p class="msg">
     Tum meri zindagi ka sabse khoobsurat hissa ho 💖<br>
     Happy Birthday meri jaan 🎂
@@ -41,18 +36,20 @@
 
 </div>
 
-<!-- FINAL INLINE JS FIX -->
 <script>
-(function(){
-  const unlockBtn = document.getElementById("unlockBtn");
-  const passwordBox = document.getElementById("passwordBox");
-  const mainContent = document.getElementById("mainContent");
-  const song = document.getElementById("song");
-  const countdownEl = document.getElementById("countdown");
+document.getElementById("unlockForm").addEventListener("submit", function(e){
+  e.preventDefault(); // Prevent page reload
+  const pass = document.getElementById("password").value;
+  if(pass === "wemeton15062025"){
+    document.getElementById("passwordBox").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    
+    const song = document.getElementById("song");
+    song.play().catch(()=>console.log("Autoplay blocked, tap to play manually"));
 
-  function startCountdown() {
     const birthday = new Date("January 17, 2026 00:00:00").getTime();
-    setInterval(() => {
+    const countdownEl = document.getElementById("countdown");
+    setInterval(()=>{
       const now = new Date().getTime();
       const diff = birthday - now;
       if(diff < 0){
@@ -64,21 +61,12 @@
       const m = Math.floor((diff / (1000*60)) % 60);
       const s = Math.floor((diff / 1000) % 60);
       countdownEl.innerHTML = ⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds;
-    },1000);
-  }
+    }, 1000);
 
-  unlockBtn.addEventListener("click", function(){
-    const pass = document.getElementById("password").value;
-    if(pass === "wemeton15062025"){
-      passwordBox.style.display = "none";
-      mainContent.style.display = "block";
-      song.play().catch(()=>console.log("Autoplay blocked, tap to play manually"));
-      startCountdown();
-    } else {
-      alert("Wrong Password ❤️");
-    }
-  });
-})();
+  } else {
+    alert("Wrong Password ❤️");
+  }
+});
 </script>
 
 </body>

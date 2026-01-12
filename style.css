@@ -1,89 +1,41 @@
 body {
-  margin: 0;
-  background: linear-gradient(135deg, #ff4e8a, #ff85a2);
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
   font-family: Arial, sans-serif;
   text-align: center;
   color: white;
-  overflow-x: hidden;
+  padding: 30px;
 }
 
-.container {
-  padding: 20px;
+#passwordBox {
+  margin-top: 100px;
 }
 
-h1 { font-size: 2.5em; }
-h2 { font-size: 2em; }
-
-.date {
-  font-size: 1.2em;
-  margin-bottom: 15px;
-}
-
-.photo {
-  width: 200px;
-  border-radius: 50%;
-  border: 4px solid white;
-  margin: 20px 0;
-}
-
-#countdown {
-  font-size: 1.3em;
-  margin: 15px 0;
-}
-
-.msg {
-  font-size: 1.1em;
-  line-height: 1.6;
+#password {
+  padding: 10px;
+  font-size: 16px;
 }
 
 button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 25px;
-  background: #ff1744;
-  color: white;
+  padding: 10px 20px;
   font-size: 16px;
+  background: white;
+  color: #ff4081;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #e6003e;
-}
-
-#surprise {
-  margin-top: 25px;
-  font-size: 1.1em;
-}
-
-.hidden {
+#mainContent {
   display: none;
 }
 
-/* PASSWORD BOX */
-#passwordBox {
-  margin-top: 150px;
+.photo {
+  width: 250px;
+  border-radius: 15px;
+  margin-top: 20px;
 }
 
-#passwordBox input {
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-  text-align: center;
-}
-
-/* HEARTS */
-.heart {
-  position: fixed;
-  top: -10px;
-  color: pink;
-  font-size: 20px;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
+.msg {
+  margin-top: 20px;
+  font-size: 18px;
 }

@@ -12,7 +12,6 @@
   <h2>🔒 Enter Password</h2>
   <input type="password" id="password" placeholder="Enter password">
   <br><br>
-  <!-- Inline JS button -->
   <button id="unlockBtn">Unlock ❤️</button>
 </div>
 
@@ -42,36 +41,44 @@
 
 </div>
 
-<!-- Inline JS (Final Fix) -->
+<!-- FINAL INLINE JS FIX -->
 <script>
-document.getElementById("unlockBtn").addEventListener("click", function() {
-  const pass = document.getElementById("password").value;
-  if (pass === "wemeton15062025") {
-    document.getElementById("passwordBox").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-    document.getElementById("song").play();
+(function(){
+  const unlockBtn = document.getElementById("unlockBtn");
+  const passwordBox = document.getElementById("passwordBox");
+  const mainContent = document.getElementById("mainContent");
+  const song = document.getElementById("song");
+  const countdownEl = document.getElementById("countdown");
 
-    // Countdown
+  function startCountdown() {
     const birthday = new Date("January 17, 2026 00:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
       const diff = birthday - now;
-      if (diff < 0) {
-        document.getElementById("countdown").innerHTML = "🎂 Happy Birthday Priyanshi 🎉";
+      if(diff < 0){
+        countdownEl.innerHTML = "🎂 Happy Birthday Priyanshi 🎉";
         return;
       }
       const d = Math.floor(diff / (1000*60*60*24));
       const h = Math.floor((diff / (1000*60*60)) % 24);
       const m = Math.floor((diff / (1000*60)) % 60);
       const s = Math.floor((diff / 1000) % 60);
-      document.getElementById("countdown").innerHTML =
-        ⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds;
-    }, 1000);
-
-  } else {
-    alert("Wrong Password ❤️");
+      countdownEl.innerHTML = ⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds;
+    },1000);
   }
-});
+
+  unlockBtn.addEventListener("click", function(){
+    const pass = document.getElementById("password").value;
+    if(pass === "wemeton15062025"){
+      passwordBox.style.display = "none";
+      mainContent.style.display = "block";
+      song.play().catch(()=>console.log("Autoplay blocked, tap to play manually"));
+      startCountdown();
+    } else {
+      alert("Wrong Password ❤️");
+    }
+  });
+})();
 </script>
 
 </body>

@@ -7,53 +7,35 @@
 </head>
 <body>
 
-<div id="passwordBox">
-  <h2>🔒 Enter Password</h2>
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="checkPassword()">Unlock ❤️</button>
-</div>
+  <!-- PASSWORD SCREEN -->
+  <div id="passwordBox">
+    <h2>🔒 Enter Password</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <br><br>
+    <button onclick="checkPassword()">Unlock ❤️</button>
+  </div>
 
-<div id="mainContent" class="hidden">
+  <!-- MAIN CONTENT -->
+  <div id="mainContent">
+    <audio autoplay loop>
+      <source src="music/birthday.mp3" type="audio/mpeg">
+    </audio>
 
-<audio autoplay loop>
-  <source src="music/birthday.mp3" type="audio/mpeg">
-</audio>
+    <h1>🎉 Happy Birthday 🎉</h1>
+    <h2>Priyanshi ❤️</h2>
+    <p>17 January</p>
 
-<div class="container">
-  <h1>🎉 Happy Birthday 🎉</h1>
-  <h2>Priyanshi ❤️</h2>
-  <p class="date">17 January</p>
+    <img src="images/priyanshi.jpg" alt="Priyanshi" class="photo">
 
-  <img src="images/priyanshi.jpg" class="photo">
-
-  <div id="countdown"></div>
-
-  <p class="msg">
-    💖 Tum meri har dua ka jawab ho,<br>
-    Tum meri zindagi ka sabse khoobsurat khwab ho,<br>
-    Tum saath ho to har din special lagta hai. 💖
-  </p>
-
-  <button onclick="showSurprise()">Click for Surprise 🎁</button>
-
-  <div id="surprise" class="hidden">
-    <p>
-      Priyanshi ❤️<br><br>
-      Tumhari ek smile meri sari thakaan mita deti hai,<br>
-      Tumhari ek baat mera poora din bana deti hai.<br><br>
-      Main vaada karta hoon,<br>
-      Har birthday, har khushi, har aansu —<br>
-      *sab tumhare saath share karunga.*<br><br>
-      💕 I Love You Forever 💕
+    <p class="msg">
+      💖 Tum meri zindagi ka sabse khoobsurat hissa ho.<br>
+      Har muskurahat meri tum se shuru hoti hai.<br>
+      Happy Birthday meri jaan 💖
     </p>
   </div>
-</div>
 
-</div>
+  <!-- JS FILE (MOST IMPORTANT) -->
+  <script src="script.js"></script>
 
-<script src="script.js"></script>
 </body>
-
 </html>
-
-

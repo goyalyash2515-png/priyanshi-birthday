@@ -58,9 +58,10 @@ button { padding: 15px 30px; font-size: 20px; margin: 20px; cursor: pointer; pos
 /* WISH + SHAYARI */
 #wish { display: none; margin-top: 20px; z-index:2; position-relative; }
 .wish-text { font-size: 18px; line-height: 1.6; color: #ffe4e1; }
-.shayari { font-style: italic; color: #ffd700; margin-top: 15px; text-shadow: 1px 1px 2px black; }
+.shayari { font-style: italic; color:#ffd700; margin-top: 15px; text-shadow: 1px 1px 2px black; }
 
 /* BALLOON FLOAT */
 
 @keyframes floatUp { 0% {bottom: -80px; transform: translateX(0);} 100% {bottom: 100vh; transform: translateX(30px);} }
+
 

@@ -52,8 +52,9 @@ z-index:2; position:relative; }
 button { padding: 15px 30px; font-size: 20px; margin: 20px; cursor: pointer; position-relative; z-index:2; }
 
 /* IMAGE GALLERY */
-#gallery { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
-#gallery img { width: 45%; height: auto; object-fit: cover; border-radius: 15px; animation: floatImg 3s infinite alternate; }
+#gallery { display: flex; justify-content: space-between;  gap: 15px; margin-top: 20px; } 
+#gallery .column { display: flex; flex-direction: column; gap: 15px }
+#gallery img { width: 100%; max-width: 300px height: auto; border-radius: 15px; }
 
 /* WISH + SHAYARI */
 #wish { display: none; margin-top: 20px; z-index:2; position-relative; }
@@ -63,5 +64,6 @@ button { padding: 15px 30px; font-size: 20px; margin: 20px; cursor: pointer; pos
 /* BALLOON FLOAT */
 
 @keyframes floatUp { 0% {bottom: -80px; transform: translateX(0);} 100% {bottom: 100vh; transform: translateX(30px);} }
+
 
 

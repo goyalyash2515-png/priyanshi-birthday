@@ -39,7 +39,7 @@ function startBalloons(){
   for(let i=0;i<50;i++){
     const b = document.createElement("div");
     b.className="balloon";
-    b.style.background=hsl(${Math.random()*360},70%,70%);
+    b.style.background = `hsl(${Math.random() * 360}, 70%, 70%)`;
     b.style.left=Math.random()*100+"vw";
     b.style.animationDuration=4+Math.random()*4+"s";
     container.appendChild(b);
@@ -154,3 +154,4 @@ function startFireworks(){
   animate();
   setInterval(firework,1000);
 }
+

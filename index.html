@@ -1,38 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Button Click Test</title>
+<title>Happy Birthday Priyanshi ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:black;
-  color:white;
-  font-family:Arial;
-}
-button{
-  padding:20px 40px;
-  font-size:22px;
-  cursor:pointer;
-  z-index:9999;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<button id="btn">CLICK ME</button>
+<!-- 🔐 LOCK SCREEN -->
+<div id="lockScreen">
+  <h2>Enter Password</h2>
+  <input type="password" id="password" placeholder="Password">
+  <button id="unlockBtn" type="button">Unlock ❤️</button>
+  <p id="error"></p>
+</div>
 
-<script>
-document.getElementById("btn").addEventListener("click", function(){
-  alert("BUTTON CLICK WORKING");
-});
-</script>
+<!-- 🎉 MAIN CONTENT -->
+<div id="mainContent">
+  <h1 class="name">Priyanshi 💖</h1>
+  <div id="countdown"></div>
 
+  <button id="giftBtn">🎁 Open Surprise</button>
+
+  <!-- 📸 IMAGE GALLERY -->
+  <div id="gallery">
+    <img src="images/p1.jpg">
+    <img src="images/p2.jpg">
+    <img src="images/p3.jpg">
+    <img src="images/p4.jpg">
+  </div>
+
+  <!-- 💌 EMOTIONAL WISH -->
+  <div id="wish">
+    <p class="wish-text">
+      Priyanshi ❤️<br>
+      Tum sirf meri girlfriend nahi ho,  
+      tum meri har dua ka jawab ho.  
+      Jab zindagi thak jaati hai,  
+      tumhari ek smile sab kuch theek kar deti hai ✨  
+      <br><br>
+      Main wada karta hoon –  
+      chahe waqt badle, log badle,  
+      par mera pyaar tumhare liye  
+      har din aur gehra hota jaayega 💖
+    </p>
+
+    <p class="shayari">
+      "Tu paas ho ya door,<br>
+       farq nahi padta,<br>
+       kyunki tu har dhadkan mein<br>
+       mehsoos hoti hai ❤️"
+    </p>
+  </div>
+
+  <button id="cakeBtn">🎂 Cut the Cake</button>
+
+  <audio id="song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

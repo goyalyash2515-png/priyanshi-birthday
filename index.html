@@ -13,18 +13,25 @@
 <div id="lockScreen">
   <h2>Enter Password</h2>
   <input type="password" id="password" placeholder="Password">
-  <button id="unlockBtn" type="button">Unlock ❤️</button>
+  <button id="unlockBtn">Unlock ❤️</button>
   <p id="error"></p>
 </div>
 
 <!-- 🎉 MAIN CONTENT -->
 <div id="mainContent">
+
+  <!-- Balloon Animation -->
+  <div id="balloons"></div>
+
+  <!-- Heart Particle + Confetti Canvas -->
+  <canvas id="hearts"></canvas>
+
   <h1 class="name">Priyanshi 💖</h1>
   <div id="countdown"></div>
 
   <button id="giftBtn">🎁 Open Surprise</button>
 
-  <!-- 📸 IMAGE GALLERY -->
+  <!-- IMAGE GALLERY -->
   <div id="gallery">
     <img src="images/p1.jpg">
     <img src="images/p2.jpg">
@@ -32,35 +39,30 @@
     <img src="images/p4.jpg">
   </div>
 
-  <!-- 💌 EMOTIONAL WISH -->
+  <!-- EMOTIONAL WISH & SHAYARI -->
   <div id="wish">
     <p class="wish-text">
       Priyanshi ❤️<br>
-      Tum sirf meri girlfriend nahi ho,  
-      tum meri har dua ka jawab ho.  
-      Jab zindagi thak jaati hai,  
-      tumhari ek smile sab kuch theek kar deti hai ✨  
-      <br><br>
-      Main wada karta hoon –  
-      chahe waqt badle, log badle,  
-      par mera pyaar tumhare liye  
-      har din aur gehra hota jaayega 💖
+      Tum meri zindagi ka sabse khoobsurat hissa ho.<br>
+      Har pal tumhara saath meri duniya roshan kar deta hai ✨<br>
+      Jab tum muskurati ho, lagta hai jaise saari khushiyan mere paas hai.<br>
+      Tumhari hasi mere dil ki sabse pyari dhadkan hai 💖
     </p>
 
     <p class="shayari">
-      "Tu paas ho ya door,<br>
-       farq nahi padta,<br>
-       kyunki tum har dhadkan mein<br>
-       mehsoos hoti ho ❤️"
+      "Tum mere sapno ki sabse khoobsurat kahani ho,<br>
+       Tum meri har dua ka sabse pyara jawaab ho,<br>
+       Tum ho to har raat roshan lagti hai,<br>
+       Aur har din tumhare saath mehka mehka sa lagta hai ❤️"
     </p>
   </div>
 
   <button id="cakeBtn">🎂 Cut the Cake</button>
 
-  <audio id="song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <audio id="song" src="music/birthday.mp3"></audio>
+
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-

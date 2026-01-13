@@ -1,85 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Happy Birthday Priyanshi 🎂</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Priyanshi! ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Photo Frames */
+        .photo-frame {
+            position: absolute;
+            width: 140px;
+            padding: 10px 10px 30px 10px;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-radius: 2px;
+            opacity: 0;
+            transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 3;
+        }
+        .photo-frame img { width: 100%; height: 160px; object-fit: cover; }
+        
+        #photo1 { transform: translate(-300px, 200px) rotate(-20deg); }
+        #photo2 { transform: translate(300px, 200px) rotate(20deg); }
+        #photo3 { transform: translate(0, 250px) rotate(5deg); }
+
+        .open #photo1 { opacity: 1; transform: translate(-350px, -80px) rotate(-15deg); }
+        .open #photo2 { opacity: 1; transform: translate(350px, -80px) rotate(15deg); }
+        .open #photo3 { opacity: 1; transform: translate(0, 180px) rotate(0deg); }
+
+        /* Gift Box */
+        .container { text-align: center; cursor: pointer; z-index: 10; position: relative; }
+        .gift-container { position: relative; width: 180px; height: 180px; margin: 0 auto; }
+        .box { width: 180px; height: 140px; background-color: #ff4d6d; position: absolute; bottom: 0; border-radius: 0 0 10px 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 5; }
+        .lid { width: 200px; height: 40px; background-color: #ff758f; position: absolute; top: 0; left: -10px; z-index: 10; border-radius: 8px; transition: transform 1s ease-in-out; }
+        
+        /* Ribbon */
+        .box::after { content: ''; position: absolute; width: 20px; height: 100%; left: 80px; background: #fff; }
+        .lid::after { content: ''; position: absolute; width: 20px; height: 100%; left: 90px; background: #fff; }
+
+        /* Message Content */
+        .message-area { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 350px; 
+            opacity: 0; 
+            transition: all 1.5s ease; 
+            z-index: 4; 
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .open .message-area { opacity: 1; transform: translate(-50%, -230px); }
+
+        .bday-text { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff0054; margin-bottom: 10px; }
+        
+        .shayari { 
+            font-style: italic; 
+            color: #590d22; 
+            font-size: 0.95rem; 
+            margin: 15px 0;
+            line-height: 1.6;
+            border-top: 1px solid #ffb3c1;
+            border-bottom: 1px solid #ffb3c1;
+            padding: 10px 0;
+        }
+
+        .love-note { font-size: 0.85rem; color: #800f2f; font-weight: 400; line-height: 1.4; }
+
+        .heart { position: absolute; color: #ff4d6d; animation: float 4s linear forwards; pointer-events: none; }
+        @keyframes float { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-100vh) scale(1.5); opacity: 0; } }
+        
+        #instruction { color: #ff4d6d; font-weight: 600; margin-top: 25px; animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
 </head>
 <body>
 
-<!-- PASSWORD BOX -->
-<div id="passwordBox">
-  <h2>🔒 Enter Password</h2>
-  <form id="unlockForm">
-    <input type="password" id="password" placeholder="Enter password">
-    <br><br>
-    <button type="submit">Unlock ❤️</button>
-  </form>
+<audio id="bdayMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="photo-frame" id="photo1"><img src="https://via.placeholder.com/150x200?text=Priyanshi+1" alt="Memory 1"></div>
+<div class="photo-frame" id="photo2"><img src="https://via.placeholder.com/150x200?text=Priyanshi+2" alt="Memory 2"></div>
+<div class="photo-frame" id="photo3"><img src="https://via.placeholder.com/150x200?text=Priyanshi+3" alt="Memory 3"></div>
+
+<div class="container" onclick="startCelebration()">
+    <div class="gift-container" id="gift">
+        <div class="lid"></div>
+        <div class="message-area">
+            <h1 class="bday-text">Happy Birthday, Priyanshi! ❤️</h1>
+            
+            <div class="shayari">
+                "Phoolon ne amrit ka jaam bheja hai,<br>
+                Suraj ne gagan se salaam bheja hai,<br>
+                Mubarak ho aapko aapka janamdin,<br>
+                Humne dil se yeh paigaam bheja hai."
+            </div>
+
+            <p class="love-note">
+                Priyanshi, tum mere liye sirf meri girlfriend nahi, meri puri duniya ho. Aaj ke din main bas yahi kehna chahta hoon ki tumhari smile meri sabse badi khushi hai. Hamesha aise hi chamakti rehna!
+            </p>
+        </div>
+        <div class="box"></div>
+    </div>
+    <p id="instruction">Priyanshi, click here for your surprise! 🎁</p>
 </div>
 
-<!-- MAIN CONTENT -->
-<div id="mainContent">
-
-  <!-- Song -->
-  <audio id="song" loop>
-    <source src="music/birthday.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Animated Text -->
-  <h1 class="animate">🎉 Happy Birthday 🎉</h1>
-  <h2 class="animate">Priyanshi ❤️</h2>
-
-  <!-- Countdown -->
-  <div id="countdown"></div>
-
-  <!-- Photo -->
-  <img src="images/priyanshi.jpg" class="photo">
-
-  <!-- Message -->
-  <p class="msg">
-    Tum meri zindagi ka sabse khoobsurat hissa ho 💖<br>
-    Happy Birthday meri jaan 🎂
-  </p>
-
-</div>
-
-<!-- INLINE JS: Form-based Unlock + Countdown + Song -->
 <script>
-document.getElementById("unlockForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  const pass = document.getElementById("password").value;
-  if(pass === "wemeton15062025"){
-    document.getElementById("passwordBox").style.display = "none";
-    document.getElementById("mainContent").style.display = "block";
-    const song = document.getElementById("song");
-    song.play().catch(()=>console.log("Tap to play manually"));
+    function startCelebration() {
+        const gift = document.getElementById('gift');
+        const music = document.getElementById('bdayMusic');
+        
+        if (document.body.classList.contains('open')) return;
 
-    // Countdown
-    const birthday = new Date("January 12, 2026 00:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
-    setInterval(()=>{
-      const now = new Date().getTime();
-      const diff = birthday - now;
-      if(diff < 0){
-        countdownEl.innerHTML = "🎂 Happy Birthday Priyanshi 🎉";
-        return;
-      }
-      const d = Math.floor(diff / (1000*60*60*24));
-      const h = Math.floor((diff / (1000*60*60)) % 24);
-      const m = Math.floor((diff / (1000*60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-      countdownEl.innerHTML = "⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds";
-    },1000);
-  } else {
-    alert("Wrong Password ❤️");
-  }
-});
+        music.play();
+        document.body.classList.add('open');
+        document.getElementById('instruction').style.display = 'none';
+
+        // Hearts Rain
+        setInterval(createHeart, 250);
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '100vh';
+        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }
 </script>
 
 </body>
 </html>
-
-
-
-
-

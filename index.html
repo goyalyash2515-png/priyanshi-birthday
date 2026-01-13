@@ -1,152 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Priyanshi! ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #fce4ec;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<title>Happy Birthday Priyanshi ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Photo Frames */
-        .photo-frame {
-            position: absolute;
-            width: 140px;
-            padding: 10px 10px 30px 10px;
-            background: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            border-radius: 2px;
-            opacity: 0;
-            transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 3;
-        }
-        .photo-frame img { width: 100%; height: 160px; object-fit: cover; }
-        
-        #photo1 { transform: translate(-300px, 200px) rotate(-20deg); }
-        #photo2 { transform: translate(300px, 200px) rotate(20deg); }
-        #photo3 { transform: translate(0, 250px) rotate(5deg); }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:#fff;
+  text-align:center;
+  overflow-x:hidden;
+}
+.section{display:none;min-height:100vh;padding:40px}
+.active{display:block}
 
-        .open #photo1 { opacity: 1; transform: translate(-350px, -80px) rotate(-15deg); }
-        .open #photo2 { opacity: 1; transform: translate(350px, -80px) rotate(15deg); }
-        .open #photo3 { opacity: 1; transform: translate(0, 180px) rotate(0deg); }
+/* UNLOCK */
+#unlockBox{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+input{
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  font-size:18px;
+  margin:10px;
+}
+button{
+  padding:14px 30px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:#ff2e63;
+  color:#fff;
+  cursor:pointer;
+}
+.shake{animation:shake .3s}
+@keyframes shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-5px)}
+  50%{transform:translateX(5px)}
+  75%{transform:translateX(-5px)}
+  100%{transform:translateX(0)}
+}
 
-        /* Gift Box */
-        .container { text-align: center; cursor: pointer; z-index: 10; position: relative; }
-        .gift-container { position: relative; width: 180px; height: 180px; margin: 0 auto; }
-        .box { width: 180px; height: 140px; background-color: #ff4d6d; position: absolute; bottom: 0; border-radius: 0 0 10px 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 5; }
-        .lid { width: 200px; height: 40px; background-color: #ff758f; position: absolute; top: 0; left: -10px; z-index: 10; border-radius: 8px; transition: transform 1s ease-in-out; }
-        
-        /* Ribbon */
-        .box::after { content: ''; position: absolute; width: 20px; height: 100%; left: 80px; background: #fff; }
-        .lid::after { content: ''; position: absolute; width: 20px; height: 100%; left: 90px; background: #fff; }
+/* NAME */
+.name{
+  font-size:3rem;
+  animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+  from{text-shadow:0 0 10px #fff}
+  to{text-shadow:0 0 30px #ff0}
+}
 
-        /* Message Content */
-        .message-area { 
-            position: absolute; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%); 
-            width: 350px; 
-            opacity: 0; 
-            transition: all 1.5s ease; 
-            z-index: 4; 
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-        }
-        .open .message-area { opacity: 1; transform: translate(-50%, -230px); }
+/* COUNTDOWN */
+.countdown span{
+  font-size:2rem;
+  margin:10px;
+}
 
-        .bday-text { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff0054; margin-bottom: 10px; }
-        
-        .shayari { 
-            font-style: italic; 
-            color: #590d22; 
-            font-size: 0.95rem; 
-            margin: 15px 0;
-            line-height: 1.6;
-            border-top: 1px solid #ffb3c1;
-            border-bottom: 1px solid #ffb3c1;
-            padding: 10px 0;
-        }
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:10px;height:10px;
+  top:-10px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
 
-        .love-note { font-size: 0.85rem; color: #800f2f; font-weight: 400; line-height: 1.4; }
+/* GIFT */
+.gift{
+  font-size:120px;
+  cursor:pointer;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+}
 
-        .heart { position: absolute; color: #ff4d6d; animation: float 4s linear forwards; pointer-events: none; }
-        @keyframes float { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-100vh) scale(1.5); opacity: 0; } }
-        
-        #instruction { color: #ff4d6d; font-weight: 600; margin-top: 25px; animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-    </style>
+/* IMAGES */
+.gallery img{
+  width:150px;
+  margin:10px;
+  border-radius:15px;
+}
+
+/* CAKE */
+.cake{
+  font-size:150px;
+  animation:cut 2s infinite;
+}
+@keyframes cut{
+  0%{transform:rotate(0)}
+  50%{transform:rotate(3deg)}
+  100%{transform:rotate(0)}
+}
+</style>
 </head>
+
 <body>
 
-<audio id="bdayMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<div class="photo-frame" id="photo1"><img src="https://via.placeholder.com/150x200?text=Priyanshi+1" alt="Memory 1"></div>
-<div class="photo-frame" id="photo2"><img src="https://via.placeholder.com/150x200?text=Priyanshi+2" alt="Memory 2"></div>
-<div class="photo-frame" id="photo3"><img src="https://via.placeholder.com/150x200?text=Priyanshi+3" alt="Memory 3"></div>
-
-<div class="container" onclick="startCelebration()">
-    <div class="gift-container" id="gift">
-        <div class="lid"></div>
-        <div class="message-area">
-            <h1 class="bday-text">Happy Birthday, Priyanshi! ❤️</h1>
-            
-            <div class="shayari">
-                "Phoolon ne amrit ka jaam bheja hai,<br>
-                Suraj ne gagan se salaam bheja hai,<br>
-                Mubarak ho aapko aapka janamdin,<br>
-                Humne dil se yeh paigaam bheja hai."
-            </div>
-
-            <p class="love-note">
-                Priyanshi, tum mere liye sirf meri girlfriend nahi, meri puri duniya ho. Aaj ke din main bas yahi kehna chahta hoon ki tumhari smile meri sabse badi khushi hai. Hamesha aise hi chamakti rehna!
-            </p>
-        </div>
-        <div class="box"></div>
-    </div>
-    <p id="instruction">Priyanshi, click here for your surprise! 🎁</p>
+<!-- UNLOCK -->
+<div id="unlockBox" class="section active">
+  <h1>🔒 Unlock Surprise</h1>
+  <input type="password" id="pass" placeholder="Enter Password">
+  <button onclick="unlock()">Unlock ❤️</button>
 </div>
 
+<!-- COUNTDOWN -->
+<div id="countdownSection" class="section">
+  <div class="name">Priyanshi 💖</div>
+  <h2>Birthday Countdown</h2>
+  <div id="countdown" class="countdown"></div>
+</div>
+
+<!-- GIFT -->
+<div id="giftSection" class="section">
+  <h1>🎁 Surprise Gift</h1>
+  <div class="gift" onclick="openGift()">🎁</div>
+</div>
+
+<!-- MESSAGE -->
+<div id="messageSection" class="section">
+  <h1>Happy Birthday Priyanshi ❤️</h1>
+  <p>
+    Tum meri zindagi ka sabse khoobsurat hissa ho 💕<br>
+    Tumhari hasi meri duniya roshan kar deti hai ✨
+  </p>
+  <p>
+    "Tum ho to lagta hai sab kuch poora hai,<br>
+    warna ye zindagi bhi adhoori si thi."
+  </p>
+
+  <div class="gallery">
+    <img src="images/img1.jpg">
+    <img src="images/img2.jpg">
+    <img src="images/img3.jpg">
+    <img src="images/img4.jpg">
+  </div>
+
+  <button onclick="showCake()">Cake Time 🎂</button>
+</div>
+
+<!-- CAKE -->
+<div id="cakeSection" class="section">
+  <h1>🎂 Cake Cutting 🎂</h1>
+  <div class="cake">🎂</div>
+</div>
+
+<audio id="song" src="music/birthday.mp3"></audio>
+
 <script>
-    function startCelebration() {
-        const gift = document.getElementById('gift');
-        const music = document.getElementById('bdayMusic');
-        
-        if (document.body.classList.contains('open')) return;
+function show(id){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
 
-        music.play();
-        document.body.classList.add('open');
-        document.getElementById('instruction').style.display = 'none';
+function unlock(){
+  const p=document.getElementById("pass");
+  if(p.value==="wemeton15062025"){
+    show("countdownSection");
+    startCountdown();
+  }else{
+    p.classList.add("shake");
+    setTimeout(()=>p.classList.remove("shake"),300);
+  }
+}
 
-        // Hearts Rain
-        setInterval(createHeart, 250);
+function startCountdown(){
+  const target=new Date("January 17, 2026 00:00:00").getTime();
+  const timer=setInterval(()=>{
+    const now=new Date().getTime();
+    const d=target-now;
+    if(d<=0){
+      clearInterval(timer);
+      startConfetti();
+      show("giftSection");
+      return;
     }
+    const days=Math.floor(d/(1000*60*60*24));
+    const hrs=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    const mins=Math.floor((d%(1000*60*60))/(1000*60));
+    const secs=Math.floor((d%(1000*60))/1000);
+    document.getElementById("countdown").innerHTML=
+      <span>${days}d</span><span>${hrs}h</span><span>${mins}m</span><span>${secs}s</span>;
+  },1000);
+}
 
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = '❤️';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.top = '100vh';
-        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 4000);
-    }
+function startConfetti(){
+  for(let i=0;i<100;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=(2+Math.random()*3)+"s";
+    c.style.background=hsl(${Math.random()*360},100%,50%);
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+function openGift(){
+  show("messageSection");
+  document.getElementById("song").play();
+}
+
+function showCake(){
+  show("cakeSection");
+}
 </script>
 
 </body>

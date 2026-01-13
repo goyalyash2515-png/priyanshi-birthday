@@ -1,0 +1,102 @@
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#000;
+  color:white;
+  text-align:center;
+}
+
+/* LOCK */
+#lockScreen{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#lockScreen input{
+  padding:10px;
+  font-size:18px;
+  margin-top:10px;
+}
+
+#lockScreen button{
+  padding:12px 30px;
+  font-size:18px;
+  margin-top:10px;
+  cursor:pointer;
+}
+
+#error{color:red; margin-top:10px;}
+
+/* MAIN CONTENT */
+#mainContent{
+  display:none;
+  padding:20px;
+}
+
+.name{
+  font-size:36px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{color:#ff69b4;}
+  to{color:#fff;}
+}
+
+#countdown{
+  font-size:24px;
+  margin:20px 0;
+}
+
+#giftBtn, #cakeBtn{
+  padding:15px 30px;
+  font-size:20px;
+  margin:20px;
+  cursor:pointer;
+}
+
+/* IMAGE GALLERY */
+#gallery{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-top:20px;
+}
+
+#gallery img{
+  width:150px;
+  height:200px;
+  object-fit:cover;
+  border-radius:15px;
+  animation: float 3s infinite alternate;
+}
+
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(-10px);}
+}
+
+/* WISH + SHAYARI */
+#wish{
+  display:none;
+  margin-top:20px;
+}
+
+.wish-text{
+  font-size:18px;
+  line-height:1.6;
+  color:#ffe4e1;
+}
+
+.shayari{
+  font-style:italic;
+  color:#ffb6c1;
+  margin-top:15px;
+}

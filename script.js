@@ -39,7 +39,7 @@ function startBalloons(){
   for(let i=0;i<50;i++){
     const b = document.createElement("div");
     b.className="balloon";
-    b.style.background = `hsl(${Math.random() * 360}, 70%, 70%)`;
+    b.style.background="hsl(${Math.random()*360},70%,70%)";
     b.style.left=Math.random()*100+"vw";
     b.style.animationDuration=4+Math.random()*4+"s";
     container.appendChild(b);
@@ -55,8 +55,8 @@ function startHearts(){
   canvas.height=window.innerHeight;
   let particles=[];
   for(let i=0;i<80;i++){
-    particles.push({ x: Math.random() * canvas.width,  y: Math.random() * canvas.height,  size: 5 + Math.random() * 5, speed: 1 + Math.random() * 2,  color: `hsl(${Math.random() * 360}, 80%, 70%)`
-});
+    particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, size:5+Math.random()*5, speed:1+Math.random()*2, color:hsl(${Math.random()*360},80%,70%)});
+  }
   function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     particles.forEach(p=>{
@@ -154,5 +154,3 @@ function startFireworks(){
   animate();
   setInterval(firework,1000);
 }
-
-

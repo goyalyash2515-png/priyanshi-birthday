@@ -1,25 +1,24 @@
 const correctPassword = "wemeton15062025";
 
-document.addEventListener("DOMContentLoaded", ()=>{
+function unlockPage() {
+  const pass = document.getElementById("password").value;
   const main = document.getElementById("mainContent");
-  main.style.display = "none";
 
-  document.getElementById("unlockBtn").addEventListener("click", ()=>{
-    const pass = document.getElementById("password").value;
-    if(pass === correctPassword){
-      document.getElementById("lockScreen").style.display = "none";
-      main.style.display = "block";
+  if(pass === correctPassword){
+    document.getElementById("lockScreen").style.display = "none";
+    main.style.display = "block";
 
-      startCountdown();
-      startBalloons();
-      startHearts();
-      startSlideshow();
-      startFireworks();
-    } else {
-      document.getElementById("error").innerText = "Wrong password 😢";
-    }
-  });
-});
+    // Start all animations / features
+    startCountdown();
+    startBalloons();
+    startHearts();
+    startSlideshow();
+    startFireworks();
+
+  } else {
+    document.getElementById("error").innerText = "Wrong password 😢";
+  }
+}
 
 // Countdown
 function startCountdown(){
@@ -158,4 +157,5 @@ function startFireworks(){
 
   animate();
   setInterval(firework,1000);
+
 }
